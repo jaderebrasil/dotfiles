@@ -1,0 +1,68 @@
+# vim: filetype=gitconfig
+# Remove all files by standard
+/*
+
+# .config
+!.config
+.config/*
+
+# subdirs in .config
+!.config/alacritty
+!.config/alsa
+!.config/calcurse
+!.config/fontconfig
+!.config/i3
+!.config/i3blocks
+!.config/lf
+!.config/ranger
+!.config/mpv
+!.config/gtk-2.0
+!.config/gtk-3.0
+!.config/hunter
+!.config/ncmpcpp
+!.config/htop
+!.config/zathura
+!.config/terminator
+!.config/tmux
+!.config/xfce4
+!.config/tridactyl
+!.config/wal
+!.config/dunst
+!.config/Thunar
+!.config/wget
+!.config/vifm
+!.config/sxiv
+!.config/mpd
+!.config/zsh
+!.config/nvim
+
+# files in .config
+!.config/aliasrc
+!.config/directories
+!.config/files
+!.config/inputrc
+!.config/mimeapps.list
+!.config/Xresources
+!.config/user-dirs.dirs
+!.config/redshift.conf
+!.config/xinitrc
+!.config/xprofile
+
+# files in home
+!.gitmodules
+!.gitignore
+!.profile
+!.xinitrc
+!.xprofile
+!.zprofile
+!.bashrc
+!.zshrc
+!.bash_profile
+!.toprc
+
+# some remotions in .config
+.config/mpd/playlists
+.config/nvim/autoload
+.config/nvim/plugged
+.config/nvim/.*
+.config/zsh/environment.zsh
