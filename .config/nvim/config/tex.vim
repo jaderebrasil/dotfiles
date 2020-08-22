@@ -7,6 +7,7 @@ autocmd VimLeave *.tex !texclear %
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 let g:tex_conceal = ""
+let g:tex_flavor = "latex"
 
 " For snippet_complete marker.
 if has('conceal')
