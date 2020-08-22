@@ -1,0 +1,2 @@
+#!/bin/sh
+hp-scan -m 'color' -d 'hpaio:/usb/Deskjet_1510_series?serial=BR4261H2P205XJ' $@

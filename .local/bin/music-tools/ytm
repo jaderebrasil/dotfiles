@@ -1,0 +1,10 @@
+#!/bin/sh
+
+alias \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best"
+
+url=$(echo "$1" | sed "s/https:\/\/music.youtube.com/https:\/\/www.youtube.com/g")
+echo $url
+shift
+yta --cookies="~/.local/bin/music-tools/cookies-youtube-com.txt" --no-playlist $@ $url

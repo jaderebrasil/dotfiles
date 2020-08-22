@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Prints all batteries, their percentage remaining and an emoji corresponding
+# to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
+# 🛑 ♻: 🔌 ⚡ ❗
+
+case $BLOCK_BUTTON in
+    3) notify-send "🔋 Battery module" "🔋: discharging
+ : not charging
+: stagnant charge
+: charging
+: charged
+: battery very low!" ;;
+esac
+
+#                 #fontawesome
+# s/Discharging/ /;s/Not charging/ /;s/Charging//;s/Unknown//;s/Full//
+
+#               #nerd-icons
+# Loop through all attached batteries.
+for battery in /sys/class/power_supply/BAT?
+do
+	# Get its remaining capacity and charge status.
+	capacity=$(cat "$battery"/capacity) || break
+	status=$(sed "s/Discharging//;s/Not charging//;s/Charging//;s/Unknown//;s/Full//" "$battery"/status)
+
+     [ "$capacity" == 100 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 90 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 80 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 70 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 60 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 50 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 40 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 30 ] && [ "$status" = "" ] && status=""
+	 [ "$capacity" -le 20 ] && [ "$status" = "" ] && status="" && warn=""
+	 [ "$capacity" -le 10 ] && [ "$status" = "" ] && status="" && warn=""
+
+	printf "%s%s %s%% " "$status" "$warn" "$capacity"
+	unset warn
+done | sed 's/ *$//'
+
+echo ""

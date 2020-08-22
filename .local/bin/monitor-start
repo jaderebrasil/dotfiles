@@ -1,0 +1,16 @@
+#!/bin/bash
+# Started on i3 config file - auto adjust monitor
+
+HDMI="HDMI1"
+allposs=$(xrandr -q | grep "connected")
+
+postrun() { # Stuff to run to clean up.
+	setbg		# Fix background if screen size/arangement has changed.
+	remaps		# Re-remap keys if keyboard added (for laptop bases)
+	{ killall dunst ; setsid dunst & } >/dev/null 2>&1 # Restart dunst to ensure proper location on screen
+}
+
+[ -z "$(echo $allposs | grep "$HDMI connected")" ] ||
+	xrandr --output "$HDMI" --auto --scale 1.0x1.0 $(echo "$allposs" | grep -v "$HDMI" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ')
+
+postrun

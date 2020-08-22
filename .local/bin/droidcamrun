@@ -1,0 +1,5 @@
+#!/bin/sh
+# load droidcam module
+sudo modprobe v4l2loopback-dc
+
+droidcam &

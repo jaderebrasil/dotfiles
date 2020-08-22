@@ -1,0 +1,4 @@
+# generate-pfa.pe
+
+Open($1);
+Generate($fontname + ".pfa");

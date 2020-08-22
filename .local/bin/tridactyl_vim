@@ -1,0 +1,7 @@
+#!/bin/sh
+
+line=$1
+col=$2
+file=$3
+
+vim $file "+normal!${line}Gzv${col}|"

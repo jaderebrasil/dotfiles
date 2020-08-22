@@ -1,0 +1,3 @@
+#!/bin/bash
+
+afmtodit $1 textmap $2
