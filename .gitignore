@@ -13,6 +13,9 @@
 !.local/share/
 .local/share/*
 
+# files in .local/share
+!.local/share/bg
+
 # subdirs in .local/share
 !.local/share/applications
 .local/share/applications/*
