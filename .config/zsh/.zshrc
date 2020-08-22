@@ -36,7 +36,6 @@ source $ZSH/oh-my-zsh.sh
 
 # git my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-alias vifm='~/.config/vifm/scripts/vifmrun'
 
 export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin:$HOME/.cabal/bin:$PATH:$HOME/.local/share/cargo/bin"
 
