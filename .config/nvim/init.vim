@@ -131,6 +131,7 @@ set noexpandtab
 
 "" Map leader to ,
 let mapleader='ç'
+let maplocalleader = "\\"
 
 "" Searching
 set nohlsearch

@@ -42,7 +42,7 @@ autocmd VimLeave *.mom :call GroffClean()
 
 " Opens zathura
 "<CR> is needed only for maps not for commands
-au Filetype groff nmap <leader>lv :call GroffZathura()<CR>
+au Filetype groff nmap <localleader>lv :call GroffZathura()<CR>
 
 
 
