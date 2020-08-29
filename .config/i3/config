@@ -30,13 +30,18 @@ for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
 
 for_window [title="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move position center
 
 # for_window [instance="dropdown_tmuxddbig"] resize set 1200 700
 for_window [instance="dropdown_tmuxdd"] resize set 625 450
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
-for_window [instance="dropdown_*"] move position center
+
+for_window [instance="godot_editor_*"] floating enable
+for_window [instance="godot_editor_*"] resize set 1130 705
+for_window [instance="godot_editor_*"] move position center
+
 
 bar {
 	font pango:Liberation Mono, Icons 11
