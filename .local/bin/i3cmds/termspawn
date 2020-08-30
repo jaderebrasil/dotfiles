@@ -1,0 +1,15 @@
+#!/bin/sh
+
+SCRIPT=$1
+shift
+NAME="termspawn_$SCRIPT"
+if xwininfo -tree -root | grep "(\"$NAME\" ";
+then
+	echo "Window detected."
+	i3 "[instance=\"$NAME\"] scratchpad show"
+else
+	echo "Window not detected... spawning."
+	CMD="$TERMINAL -n $NAME -e $SCRIPT \"$@\" "
+	echo $CMD
+	i3 "exec --no-startup-id $CMD"
+fi
