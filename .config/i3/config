@@ -41,7 +41,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="termspawn_*"] floating enable
 for_window [instance="termspawn_*"] move scratchpad
 for_window [instance="termspawn_*"] scratchpad show
-for_window [instance="termspawn_vim"] resize set 1130 705
+for_window [instance="termspawn_vim"] resize set 1580 983
 for_window [instance="termspawn_*"] move position center
 
 bar {
