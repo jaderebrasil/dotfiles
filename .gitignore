@@ -92,3 +92,4 @@
 .config/nvim/plugged
 .config/nvim/.*
 .config/zsh/environment.zsh
+.config/zsh/.zcomp*

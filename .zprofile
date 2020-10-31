@@ -9,7 +9,7 @@
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Adds go to path
-export PATH="$PATH:$(du "$HOME/.local/share/go/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+# export PATH="$PATH:$(du "$HOME/.local/share/go/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Default programs:
 export EDITOR="nvim"
