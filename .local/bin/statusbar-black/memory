@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# MEM=" " # fontawesome
+MEM=" " # nerd-icons
+
+#"$(ps axch -o cmd:15,%mem --sort=-%mem | head)"
+
+case $BLOCK_BUTTON in
+    1) notify-send "$MEM Memory hogs" "$(ps axch -A -o cmd:15,%mem --sort=-%mem | awk '{a[$1]+=$2}END{for (i in a) {printf "%-15s\t%.1f\n", i, a[i] | "sort -rnk2";}}' | head)";;
+	2) setsid "$TERMINAL" -e top & ;;
+	3) notify-send "$MEM Memory module" "\- Shows Memory Used/Total.
+- Click to show memory hogs.
+- Middle click to open htop." ;;
+esac
+
+TMEM=$(free -h | sed -n '2{p;q}' | awk '{print $3 "/" $2}')
+
+echo $MEM $TMEM

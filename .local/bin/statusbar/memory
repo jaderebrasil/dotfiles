@@ -1,18 +1,12 @@
 #!/bin/sh
 
-# MEM=" " # fontawesome
-MEM=" " # nerd-icons
-
-#"$(ps axch -o cmd:15,%mem --sort=-%mem | head)"
-
 case $BLOCK_BUTTON in
-    1) notify-send "$MEM Memory hogs" "$(ps axch -A -o cmd:15,%mem --sort=-%mem | awk '{a[$1]+=$2}END{for (i in a) {printf "%-15s\t%.1f\n", i, a[i] | "sort -rnk2";}}' | head)";;
-	2) setsid "$TERMINAL" -e top & ;;
-	3) notify-send "$MEM Memory module" "\- Shows Memory Used/Total.
+	1) notify-send "🧠 Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
+	2) setsid -f "$TERMINAL" -e htop ;;
+	3) notify-send "🧠 Memory module" "\- Shows Memory Used/Total.
 - Click to show memory hogs.
 - Middle click to open htop." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-TMEM=$(free -h | sed -n '2{p;q}' | awk '{print $3 "/" $2}')
-
-echo $MEM $TMEM
+free --mebi | sed -n '2{p;q}' | awk '{printf ("🧠%2.2fGiB/%2.2fGiB\n", ( $3 / 1024), ($2 / 1024))}'
