@@ -9,6 +9,10 @@
 #
 # If there is already a running instance, user will be prompted to end it.
 
+IMIC="" # 🎙️
+ICAM=" " # 🎥
+ISCR="ﲣ " # ⏺️
+
 updateicon() { \
 	echo "$1" > /tmp/recordingicon
 	pkill -RTMIN+9 "${STATUSBAR:-dwmblocks}"
@@ -39,7 +43,7 @@ screencast() { \
  	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
 	"$HOME/screencast-$(date '+%y%m%d-%H%M-%S').mp4" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️🎙️"
+	updateicon "$ISCR$IMIC"
        	}
 
 video() { ffmpeg \
@@ -49,7 +53,7 @@ video() { ffmpeg \
  	-c:v libx264 -qp 0 -r 30 \
 	"$HOME/video-$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "⏺️"
+	updateicon "$ISCR"
 	}
 
 webcamhidef() { ffmpeg \
@@ -58,16 +62,14 @@ webcamhidef() { ffmpeg \
 	-video_size 1920x1080 \
 	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+	updateicon "$ICAM"
 	}
 
 webcam() { ffmpeg \
-	-f v4l2 \
-	-i /dev/video0 \
-	-video_size 640x480 \
+	-f v4l2 \ -i /dev/video0 \ -video_size 640x480 \
 	"$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎥"
+	updateicon "$ICAM"
 	}
 
 
@@ -78,7 +80,7 @@ audio() { \
 	-ac 1\
 	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
 	echo $! > /tmp/recordingpid
-	updateicon "🎙️"
+	updateicon "$IMIC"
 	}
 
 askrecording() { \
