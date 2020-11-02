@@ -24,6 +24,5 @@ grep -q "down" /sys/class/net/w*/operstate && wifiicon="" ||
 if [ -z "$wifiicon" ]; then
     printf "%s %s\n" "$wifiicon" "$(sed "s/down//;s/up//" /sys/class/net/e*/operstate)"
 else
-    printf "%s %s\n" " $wifiicon" 
+    printf "%s %s\n" "$wifiicon"
 fi
-

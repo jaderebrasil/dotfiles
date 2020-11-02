@@ -1,10 +1,10 @@
 # You can add comments to these files with #
 h	~/
-d	~/Documents
-D	~/Downloads
-m	~/Music
-pp	~/Pictures
-vv	~/Videos
+d	~/docs
+D	~/downs
+m	~/musics
+pp	~/imgs
+vv	~/vids
 cf	${XDG_CONFIG_HOME:-$HOME/.config}
 lb	~/.local/bin
 mn	/mnt
