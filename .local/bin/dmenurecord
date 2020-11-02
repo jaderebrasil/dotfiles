@@ -35,6 +35,7 @@ screencast() { \
 	-i "$DISPLAY" \
 	-f alsa -i default \
 	-r 30 \
+	-ac 1 \
  	-c:v h264 -crf 0 -preset ultrafast -c:a aac \
 	"$HOME/screencast-$(date '+%y%m%d-%H%M-%S').mp4" &
 	echo $! > /tmp/recordingpid
@@ -74,6 +75,7 @@ audio() { \
 	ffmpeg \
 	-f alsa -i default \
 	-c:a flac \
+	-ac 1\
 	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
 	echo $! > /tmp/recordingpid
 	updateicon "🎙️"
