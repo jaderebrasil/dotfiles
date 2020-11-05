@@ -15,6 +15,7 @@ ZSH_THEME="jaderbrasil"
 
 plugins=(
     git
+	git-flow-avh
     zsh-syntax-highlighting
     vi-mode
     zsh-completions

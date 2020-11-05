@@ -130,7 +130,7 @@ set shiftwidth=4
 set noexpandtab
 
 "" Map leader to ,
-let mapleader='ç'
+let mapleader=' '
 let maplocalleader = "\\"
 
 "" Searching
