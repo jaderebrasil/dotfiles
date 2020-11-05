@@ -24,6 +24,17 @@
 	  "host": "127.0.0.1",
 	  "filetypes": ["gd", "gdscript3"],
 	  "port": 6008
+	},
+
+	"ccls": {
+	  "command": "ccls",
+	  "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+	  "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+	  "initializationOptions": {
+			"cache": {
+			  "directory": "~/.cache/ccls"
+			}
+		}
 	}
 },
 
