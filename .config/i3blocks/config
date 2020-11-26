@@ -27,13 +27,6 @@ signal=8
 interval=20
 signal=7
 
-[memory]
-interval=30
-
-[cpu]
-#interval=15
-interval=30
-
 [weather]
 interval=18000
 signal=5
@@ -41,6 +34,12 @@ signal=5
 [mailbox]
 interval=180
 signal=12
+
+#[memory]
+#interval=30
+
+#[cpu]
+#interval=15
 
 [volume]
 interval=once
@@ -54,20 +53,16 @@ signal=10
 #interval=60
 #command=disk /home
 
-[clock]
-nothing=📅
-#label=
-interval=30
-
 [battery]
 command=battery BAT0
 interval=5
 
+[clock]
+label=📅
+interval=30
+
 [internet]
 interval=10
 
-#[nettraf]
-#interval=5
-
-#[help-icon]
-#interval=once
+[help-icon]
+interval=once

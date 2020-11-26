@@ -46,6 +46,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'								" Snippets
 Plug 'honza/vim-snippets'							" Snippets
 Plug 'ap/vim-css-color'								" Color highligh
+Plug 'jceb/vim-orgmode'
 
 " Other
 Plug 'tpope/vim-commentary'							" comment utils(gcc)
