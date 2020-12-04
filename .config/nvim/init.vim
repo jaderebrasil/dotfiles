@@ -292,3 +292,5 @@ autocmd BufWritepre * %s/\n\+\%$//e
 
 " Retab automatically
 " autocmd BufRead * :%retab!
+
+autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }

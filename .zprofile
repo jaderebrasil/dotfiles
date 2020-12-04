@@ -17,6 +17,10 @@ export TERMINAL="st"
 export BROWSER="firefox" #"brave"
 export READER="zathura"
 
+# Nvidia Stuff (for mathematica)
+export NVIDIA_DRIVER_LIBRARY_PATH=/usr/lib64/libnvidia-tls.so
+export CUDA_LIBRARY_PATH=/usr/lib64/libcuda.so
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
