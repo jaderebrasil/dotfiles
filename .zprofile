@@ -13,8 +13,8 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
-export BROWSER="firefox" #"brave"
+export TERMINAL="alacritty"
+export BROWSER="brave" #"firefox"
 export READER="zathura"
 
 # Nvidia Stuff (for mathematica)
@@ -42,6 +42,9 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export GHCUP_INSTALL_BASE_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/ghcup"
+
+# JAVA Stuff (/etc/environment?)
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"

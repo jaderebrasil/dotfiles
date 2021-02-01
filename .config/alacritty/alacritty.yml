@@ -37,7 +37,7 @@ font:
     family: Mononoki Nerd Font
     style: Bold Italic
 
-  size: 13.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -77,15 +77,12 @@ colors:
     white:   '#ebdbb2'
 
 key_bindings:
-    # (Windows, Linux, and BSD only)
   - { key: V,        mods: Alt, action: Paste            }
   - { key: C,        mods: Alt, action: Copy             }
   - { key: Insert,   mods: Shift,         action: PasteSelection   }
   - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: K,        mods: Alt|Shift,       action: IncreaseFontSize }
+  - { key: J,        mods: Alt|Shift,       action: DecreaseFontSize }
 
   - { key: Paste,                    action: Paste                            }
   - { key: Copy,                     action: Copy                             }

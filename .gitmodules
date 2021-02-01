@@ -7,3 +7,6 @@
 [submodule ".config/zsh/plugins/haskell"]
 	path = .config/zsh/plugins/haskell
 	url = git@github.com:coot/zsh-haskell.git
+[submodule ".config/mpv/scripts/mpvSockets"]
+	path = .config/mpv/scripts/mpvSockets
+	url = https://github.com/wis/mpvSockets.git
