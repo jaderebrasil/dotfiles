@@ -63,6 +63,12 @@
 !.config/nvim
 !.config/awesome
 
+# xmonad + xmobar
+!.config/xmobar
+!.config/xmonad
+.config/xmonad/xmonad.o
+.config/xmonad/xmonad.hi
+
 # files in .config
 !.config/aliasrc
 !.config/directories

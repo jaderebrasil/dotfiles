@@ -1,17 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 # 🌡🖥
 
 CPU=""
 #"$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)\\n(100% per core)"
 #      
-TMP=$(sensors | awk '/Core [0-9]/ {print substr($3,2,4)}' | awk '{A+=$1; B+=1}END{print A/B}')
+# TMP=$(sensors | awk '/Core [0-9]/ {print substr($3,2,4)}' | awk '{A+=$1; B+=1}END{print A/B}')
+TMP=$(sensors | grep Tctl | grep -o '[0-9]\+.[0-9]')
+TMPi=$(echo $TMP | cut -d'.' -f1)
 
 TMPICON=""
-[ $TMP -le 20 ] && TMPICON="" ||
-[ $TMP -le 25 ] && TMPICON="" ||
-[ $TMP -le 30 ] && TMPICON="" ||
-[ $TMP -ge 45 ] && TMPICON=""
-[ $TMP -ge 60 ] && TMPICON=""
+[ $TMPi -le 20 ] && TMPICON="" ||
+[ $TMPi -le 25 ] && TMPICON="" ||
+[ $TMPi -le 30 ] && TMPICON="" ||
+[ $TMPi -ge 60 ] && TMPICON="" ||
+[ $TMPi -ge 45 ] && TMPICON=""
 
 TMPSTAT="$TMPICON +$TMP°C     "
 
@@ -23,8 +25,5 @@ case $BLOCK_BUTTON in
 - Middle click to open top." ;;
 esac
 
-#sensors | awk '/Core 0/ {print "", $3}'
 
-
-
-echo $TMPICON #$CPU ""
+echo "$TMPºC" #$CPU ""

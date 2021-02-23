@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # A dmenu wrapper script for system functions.
+WM="awesome" #awesome
 
 # For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in
@@ -10,10 +11,13 @@ esac
 
 cmds="\
 🔒 lock		slock
+🚪 leave $WM 	kill -TERM $(pgrep -u $USER "\b$WM$")
+♻  renew $WM	kill -HUP $(pgrep -u $USER "\b$WM$")
 🐻 hibernate	${hib:-sudo -A systemctl suspend-then-hibernate}
 🔃 reboot	${reb:-sudo -A reboot}
 🖥 shutdown	${shut:-sudo -A shutdown -h now}"
 
+"awesome"
 # 🚪 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
 # ♻ renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
 

@@ -43,6 +43,14 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export GHCUP_INSTALL_BASE_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/ghcup"
 
+# Xmonad
+export XMONAD_CONFIG_DIR="$XDG_CONFIG_HOME/xmonad"
+export XMONAD_CACHE_DIR="$HOME/.cache/xmonad"
+export XMONAD_DATA_DIR="$XDG_DATA_HOME/xmonad"
+
+# Julia
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
+
 # JAVA Stuff (/etc/environment?)
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
