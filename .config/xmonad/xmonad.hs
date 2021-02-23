@@ -239,6 +239,13 @@ myKeys scratchPad =
 	-- Utils
 	, ("<Insert>", pasteSelection)
 	, ("M-o", spawn "notify-send foo; sleep 1; scrot -s")
+    , ("<Print>", spawn "maimauto full")
+	, ("S-<Print>", spawn "maimauto fullcopy")
+    , ("M-p", spawn "maimpick")
+	, ("M-S-p", spawn "maimauto selectcopy")
+	, ("M-C-p", spawn "dmenurecord")
+	, ("M-<Print>", spawn "dmenurecord")
+    , ("M-<Delete>", spawn "dmenurecord kill")
 
 	-- Media
 	, ("<XF86AudioRaiseVolume>", spawn (audiocontrol "raise"))
@@ -258,12 +265,14 @@ myKeys scratchPad =
 	, ("M-S-<Return>", spawn ("samedir-"++myTerminal))
 
 	-- Layouts
-	, ("M-<Tab>",       sendMessage NextLayout)           -- Switch to next layout
+	, ("M-<Tab>",       toggleWS)           -- Switch to next layout
 	, ("M-C-M1-<Up>",   sendMessage Arrange)
 	, ("M-C-M1-<Down>", sendMessage DeArrange)
 	, ("M-<Space>",     sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
 	, ("M-S-<Space>",   sendMessage ToggleStruts)     -- Toggles struts
 	, ("M-S-n", 		sendMessage $ MT.Toggle NOBORDERS)  -- Toggles noborder
+    , ("M-C-j",         sendMessage NextLayout)           -- Switch to next layout
+	, ("M-C-k",         sendMessage FirstLayout)
 
     -- Increase/decrease spacing (gaps)
 	, ("M-C-s j", decWindowSpacing 4)           -- Decrease window spacing
