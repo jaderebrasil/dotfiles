@@ -1,6 +1,8 @@
 import           System.IO
 import 			 System.Exit (exitSuccess)
 import           XMonad
+
+-- Actions
 import           XMonad.Actions.CycleWS
 import           XMonad.Actions.SpawnOn
 import           XMonad.Actions.UpdatePointer
@@ -8,7 +10,12 @@ import           XMonad.Actions.WindowGo
 import 			 XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import 			 XMonad.Actions.Promote
 import 			 XMonad.Actions.WithAll (sinkAll)
+import 			 XMonad.Actions.MouseResize
+
+-- Config
 import           XMonad.Config.Azerty
+
+-- Hooks
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
@@ -20,6 +27,8 @@ import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spiral
 import           XMonad.Layout.Tabbed
 import 			 XMonad.Layout.SimplestFloat
+import 			 XMonad.Layout.ResizableTile
+import 			 XMonad.Layout.GridVariants (Grid(Grid))
 
 -- Layouts modifiers
 import 			 XMonad.Layout.LayoutModifier
@@ -108,6 +117,8 @@ spawnToWorkspace workspace program = do
 myFont :: String
 myFont = "xft:Mononoki Nerd Font Mono:regular:size=9:antialias=true:hinting=true"
 
+myBorderWidth = 2
+
 -- setting colors for tabs layout and tabs sublayout.
 myTabTheme = def { fontName            = myFont
                  , activeColor         = "#46d9ff"
@@ -118,20 +129,83 @@ myTabTheme = def { fontName            = myFont
                  , inactiveTextColor   = "#d0d0d0"
                  }
 
+--Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
+-- Below is a variation of the above except no borders are applied
+-- if fewer than two windows. So a single window has no gaps.
+mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
+
+-- Defining a bunch of layouts, many that I don't use.
+-- limitWindows n sets maximum number of windows displayed for layout.
+-- mySpacing n sets the gap size around the windows.
+myWindowSpacing = 1
+
+tall     = renamed [Replace "tall"]
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 12
+           $ mySpacing myWindowSpacing
+           $ ResizableTall 1 (3/100) (1/2) []
+magnify  = renamed [Replace "magnify"]
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ magnifier
+           $ limitWindows 12
+           $ mySpacing myWindowSpacing
+           $ ResizableTall 1 (3/100) (1/2) []
+monocle  = renamed [Replace "monocle"]
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 20 Full
 floats   = renamed [Replace "floats"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 20 simplestFloat
+grid     = renamed [Replace "grid"]
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 12
+           $ mySpacing 0
+           $ mkToggle (single MIRROR)
+           $ Grid (16/10)
+spirals  = renamed [Replace "spirals"]
+           $ windowNavigation
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ mySpacing' myWindowSpacing
+           $ spiral (6/7)
+tabs     = renamed [Replace "tabs"]
+           -- I cannot add spacing to this layout because it will
+           -- add spacing between window and tabs which looks bad.
+           $ tabbed shrinkText myTabTheme
 
-myLayout = (
-    Tall 1 (3/100) (1/2) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
-    Full |||
-	floats |||
-    spiral (6/7)) |||
-    Fullscreen.fullscreenFull Full
+-- The layout hook
+myLayout = mouseResize $ windowArrange $ T.toggleLayouts floats
+               $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
+             where
+               myDefaultLayout =     tall
+                                 ||| magnify
+                                 ||| noBorders monocle
+                                 ||| floats
+                                 ||| noBorders tabs
+                                 ||| grid
+                                 ||| spirals
+
+-- myLayout = (
+--     Tall 1 (3/100) (1/2) |||
+--     Mirror (Tall 1 (3/100) (1/2)) |||
+--     Full |||
+-- 	floats |||
+--     spiral (6/7)) |||
+--     Fullscreen.fullscreenFull Full
 
 ------------------------------------------------------------------------------
 
@@ -160,6 +234,7 @@ myKeys scratchPad =
 	, ("M-S-q", io exitSuccess)
 	, ("M-x", spawn "slock")
 	, ("M-b", sendMessage ToggleStruts)
+    , ("M-<Backspace>", spawn "sysact xmonad")
 
 	-- Utils
 	, ("<Insert>", pasteSelection)
@@ -190,6 +265,12 @@ myKeys scratchPad =
 	, ("M-S-<Space>",   sendMessage ToggleStruts)     -- Toggles struts
 	, ("M-S-n", 		sendMessage $ MT.Toggle NOBORDERS)  -- Toggles noborder
 
+    -- Increase/decrease spacing (gaps)
+	, ("M-C-s j", decWindowSpacing 4)           -- Decrease window spacing
+	, ("M-C-s k", incWindowSpacing 4)           -- Increase window spacing
+	, ("M-S-d",   decScreenSpacing 4)           -- Decrease screen spacing
+	, ("M-S-i",   incScreenSpacing 4)           -- Increase screen spacing
+
 	-- Floating windows
 	, ("M-f", 		 	sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
 	, ("M-t", 			withFocused $ windows . W.sink)  -- Push floating window back to tile
@@ -203,7 +284,6 @@ myKeys scratchPad =
 	, ("M-S-m", windows W.swapMaster) -- Swap the focused window and the master window
 	, ("M-S-j", windows W.swapDown)   -- Swap focused window with next window
 	, ("M-S-k", windows W.swapUp)     -- Swap focused window with prev window
-	, ("M-<Backspace>", promote)      -- Moves focused window to master, others maintain order
 	, ("M-C-<Return>", promote)
 	, ("M-S-<Tab>", rotSlavesDown)    -- Rotate all windows except master and keep focus in place
 	, ("M-C-<Tab>", rotAllDown)       -- Rotate all the windows in the current stack
