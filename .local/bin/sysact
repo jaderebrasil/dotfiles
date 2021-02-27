@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # A dmenu wrapper script for system functions.
-WM="${1:-"awesome"}"
+WM="${1:-"dwm"}"
 
 # For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in

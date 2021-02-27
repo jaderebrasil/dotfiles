@@ -1,3 +1,10 @@
+# shell:
+#   program: /usr/bin/zsh
+#   args:
+#     - -l
+#     - -c
+#     - "tmux"
+
 env:
   TERM: xterm-256color
 
@@ -75,6 +82,8 @@ colors:
     magenta: '#d3869b'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
+
+background_opacity: 0.9
 
 key_bindings:
   - { key: V,        mods: Alt, action: Paste            }

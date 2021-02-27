@@ -52,6 +52,7 @@ import           XMonad.Util.Paste
 import           XMonad.Util.Run              (spawnPipe)
 import           XMonad.Util.Scratchpad
 import 			 XMonad.Util.SpawnOnce
+import 			 XMonad.Util.Cursor
 
 --import XMonad.Util.NamedScratchpad
 import qualified XMonad.Layout.Fullscreen     as Fullscreen
@@ -70,7 +71,7 @@ audiocontrol x
     | otherwise     = ""
 ----------------------
 
-myWorkspacesName = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ"]
+myWorkspacesName = [":\xf269 ", ":\xf0c3 ", ":\xf07c ", ":\xf109 ", ":\xf03e ", ":\xf1cb ", ":\xf1fb ", ":\xf233 ", ":\xf2c6 "]
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -212,6 +213,7 @@ myLayout = mouseResize $ windowArrange $ T.toggleLayouts floats
 myStartupHook = do
 	spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
 	spawnOnce "picom --experimental-backends --backend glx --xrender-sync-fence"
+	setDefaultCursor xC_left_ptr
 
 
 myFocusedBorderColor = "#7F7F7F"
@@ -230,7 +232,7 @@ myKeys scratchPad =
 
 	-- Utils
 	, ("<Insert>", pasteSelection)
-	, ("M-o", spawn "notify-send foo; sleep 1; scrot -s")
+	, ("M-o", spawn "notify-send foo; sleep 1")
     , ("<Print>", spawn "maimauto full")
 	, ("S-<Print>", spawn "maimauto fullcopy")
     , ("M-p", spawn "maimpick")
@@ -255,6 +257,8 @@ myKeys scratchPad =
 	, ("M-w", 		   spawn myBrowser)
 	, ("M-<Return>",   spawn myTerminal)
 	, ("M-S-<Return>", spawn ("samedir-"++myTerminal))
+	, ("M-S-e",        spawn "thunar")
+	, ("M-e",          spawn (myTerminal ++ " -e ranger"))
 
 	-- Layouts
 	, ("M-<Tab>",       toggleWS)           -- Switch to next layout
@@ -310,7 +314,7 @@ main = do
       , ppTitle           = xmobarColor monokaiBlue "" . shorten 100
       , ppHiddenNoWindows = xmobarColor "grey" "" . wrap "" "" . noScratchPad
       , ppUrgent          = xmobarColor "black" "#FD971F" . wrap " "  " "
-      , ppHidden          = xmobarColor "grey" "" . wrap "*" "" -- noScratchPad
+      , ppHidden          = xmobarColor "grey" "" . wrap "+" "" -- noScratchPad
 	  , ppCurrent         = xmobarColor "black" monokaiBlue . wrap "[" "]"
       , ppVisible         = xmobarColor monokaiBlue ""
       , ppLayout          = xmobarColor "#999" "" . wrap "|" "|"
