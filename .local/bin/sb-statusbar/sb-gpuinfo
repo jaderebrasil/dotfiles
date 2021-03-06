@@ -18,4 +18,9 @@ case "$barv" in
 		"8") bar="█";;
 esac
 
-echo "🕹 $bar $tºC"
+tempicon=$(blk-termometer "$t")
+
+# echo "🕹 $bar $tºC"
+gpuico="🕹"
+
+echo $gpuico$tempicon$bar

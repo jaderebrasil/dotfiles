@@ -1,5 +1,6 @@
 #!/bin/sh
 
 bars=$(sb-cpubars)
-cpuico="🖥 "
-echo "$cpuico$bars"
+cpuico="🖥"
+tempico="$(sb-cpu)"
+echo "$cpuico$tempico$bars"
