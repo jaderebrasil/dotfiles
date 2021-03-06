@@ -35,6 +35,8 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# nnn file manager
+source $XDG_CONFIG_HOME/nnn/nnn.zsh
 
 # git my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"

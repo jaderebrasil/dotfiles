@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bars=$(sb-cpubars)
+cpuico="🖥 "
+echo "$cpuico$bars"

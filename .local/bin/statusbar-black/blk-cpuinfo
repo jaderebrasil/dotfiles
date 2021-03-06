@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# cache=${CPUI_CACHE:-/tmp/cpuinfocache}
+
+case $BLOCK_BUTTON in
+	2) setsid -f "$TERMINAL" -e htop ;;
+	3) notify-send "CPU load module" "";;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# cpuall=$(awk '/cpu\s+/ {printf "%d %d\n", ($2 + $3 + $4 + $5), $5 }' /proc/stat)
+stats=$(awk '/cpu[0-9]+/ {printf "%d %d %d\n", substr($1,4), ($2 + $3 + $4 + $5 + $6 + $7 + $8 + $9 + $10), $5 }' /proc/stat)
+
+# total=${cpuall%% *}
+# idle=${cpuall##* }
+# echo $(echo "scale=2;(1 - $idle/$total)*100" | bc)
+
+echo "$stats" | while read -r row; do
+	id=${row%% *}
+	rest=${row#* }
+	total=${rest%% *}
+	idle=${rest##* }
+	p=$(echo "scale=2;( 1 - $idle/$total)*100" | bc)
+	echo "$id > $p"
+
+done;
+
+# [ ! -f $cache ] && echo -e "$statsall\n$stats"

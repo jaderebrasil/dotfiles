@@ -1,0 +1,21 @@
+#!/bin/bash
+smi=$(nvidia-smi --format=csv --query-gpu=power.draw,utilization.gpu,temperature.gpu | grep -P '^[0-9]')
+
+w=$(echo $smi | cut -d',' -f1 | xargs)
+u=$(echo $smi | cut -d',' -f2 | sed 's/\%//g' | xargs)
+t=$(echo $smi | cut -d',' -f3 | xargs)
+
+barv=$(echo "$u/12.5" | bc)
+case "$barv" in
+		"0") bar="▁";;
+		"1") bar="▂";;
+		"2") bar="▃";;
+		"3") bar="▄";;
+		"4") bar="▅";;
+		"5") bar="▆";;
+		"6") bar="▇";;
+		"7") bar="█";;
+		"8") bar="█";;
+esac
+
+echo "🕹 $bar $tºC"
