@@ -22,6 +22,7 @@ plugins=(
     haskell
     rustup
 	deno
+	yarn
 )
 
 # zsh-completions

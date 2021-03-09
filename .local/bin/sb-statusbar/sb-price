@@ -35,4 +35,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-printf "$3$%0.2f" "$(cat "$pricefile")"
+LC_NUMERIC="en_US.UTF-8" printf "$3""$%0.2f" "$(cat "$pricefile")"

@@ -13,13 +13,16 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="alacritty" #"st"
 export BROWSER="brave" #"firefox"
 export READER="zathura"
 
 # Nvidia Stuff (for mathematica)
 export NVIDIA_DRIVER_LIBRARY_PATH=/usr/lib64/libnvidia-tls.so
 export CUDA_LIBRARY_PATH=/usr/lib64/libcuda.so
+
+# Yarn
+export PATH="$PATH:$(yarn global bin)"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
