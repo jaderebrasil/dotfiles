@@ -21,6 +21,9 @@ case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 	up) wifiicon="$(awk '/^\s*w/ { print "📶", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
 esac
 
-android=$(sed "s/down//;s/unknown//" /sys/class/net/enp2s0f0u3/operstate)
+android_sys="/sys/class/net/enp2s0f0u3/operstate"
+[[ -f "$android_sys" ]] \
+	&& android=$(sed "s/down//;s/unknown//" "$android_sys") \
+	|| android=""
 
 printf "%s%s%s\n" "$wifiicon" "$android" #"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"

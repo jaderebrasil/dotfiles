@@ -40,9 +40,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'		" Highligh Nerdtree
 Plug 'ryanoasis/vim-devicons'						" Icons for Nerdtree
 
 " Productivity
-" Plug 'jreybert/vimagit'								" git
 Plug 'tpope/vim-fugitive'
-" Plug 'w0rp/ale'									  " Asynchronous Lint Engine
 Plug 'SirVer/ultisnips'								" Snippets
 Plug 'honza/vim-snippets'							" Snippets
 Plug 'ap/vim-css-color'								" Color highligh
@@ -58,7 +56,7 @@ Plug 'sheerun/vim-polyglot'							" prog lang pack
 " Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'								" fzf integration
 
-Plug 'vimwiki/vimwiki'								" My wiki
+" Plug 'vimwiki/vimwiki'								" My wiki
 
 "Plug 'Shougo/vimproc.vim', {'do' : 'make'}			" Asynchronous Exec Lib
 
@@ -77,27 +75,13 @@ Plug 'rust-lang/rust.vim'						   " rust
 " write markdown
 Plug 'junegunn/goyo.vim'						   " Distraction-free viewing
 Plug 'junegunn/limelight.vim'					   " Hyperfocus on a range
-Plug 'junegunn/vim-emoji'						   " Vim needs emojis!
-Plug 'vim-pandoc/vim-pandoc'					   " Pandoc
-Plug 'vim-pandoc/vim-pandoc-syntax'				   " Pandoc Syntax
 
 " Color schemes
-" Plug 'tomasr/molokai'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-"	  " Sources: https://github.com/ncm2/ncm2/wiki
-"	  Plug 'ncm2/ncm2-bufword'
-"	  Plug 'ncm2/ncm2-path'
-"	  Plug 'ncm2/ncm2-racer'
-"	  Plug 'ncm2/ncm2-go'
-"	  Plug 'ncm2/ncm2-match-highlight'
-
-"	  Plug 'ncm2/ncm2-ultisnips'
 
 " latex
 Plug 'lervag/vimtex'

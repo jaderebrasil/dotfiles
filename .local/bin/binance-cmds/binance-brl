@@ -1,0 +1,7 @@
+#!/bin/sh
+[[ -z "$1" ]] && exit 1
+
+source "$HOME/.config/binance/.ENV"
+brl=$(echo "$(binancecli mkt $1 brl) * $(binancecli bal $1)" | bc -l)
+
+LC_NUMERIC="en_US.UTF-8" printf "%0.2f" $brl

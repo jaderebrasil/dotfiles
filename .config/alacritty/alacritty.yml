@@ -27,21 +27,37 @@ scrolling:
   history: 5000
 
 # Font configuration
+# font:
+#   normal:
+#     family: Mononoki Nerd Font
+#     style: Regular
+
+#   bold:
+#     family: Mononoki Nerd Font
+#     style: Bold
+
+#   italic:
+#     family: Mononoki Nerd Font
+#     style: Italic
+
+#   bold_italic:
+#     family: Mononoki Nerd Font
+#     style: Bold Italic
 font:
   normal:
-    family: Mononoki Nerd Font
+    family: Noto Sans Mono
     style: Regular
 
   bold:
-    family: Mononoki Nerd Font
+    family: Noto Sans Mono
     style: Bold
 
   italic:
-    family: Mononoki Nerd Font
+    family: Noto Sans Mono
     style: Italic
 
   bold_italic:
-    family: Mononoki Nerd Font
+    family: Noto Sans Mono
     style: Bold Italic
 
   size: 14.0
