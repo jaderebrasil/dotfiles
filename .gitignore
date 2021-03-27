@@ -15,6 +15,7 @@
 
 # files in .local/share
 !.local/share/bg
+!.local/share/emoji
 
 # subdirs in .local/share
 !.local/share/applications

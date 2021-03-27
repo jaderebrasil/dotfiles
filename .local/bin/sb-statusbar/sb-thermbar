@@ -1,0 +1,12 @@
+#!/bin/sh
+
+t=$(echo $1/10 | bc)
+emoji0="🌡"
+emoji1="❗"
+emoji2="🧯"
+
+tempicon="$emoji1"
+[ $t -le 6 ] && tempicon="$emoji0"
+[ $t -ge 8 ] && tempicon="$emoji2"
+
+echo $tempicon

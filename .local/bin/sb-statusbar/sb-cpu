@@ -13,7 +13,7 @@ tempico='🌡'
 temp=$(sensors | grep Tctl | grep -o '[0-9]\+.[0-9]')
 tempbar=$(echo $temp | cut -d'.' -f1)
 
-tempicon=$(blk-termometer "$tempbar")
+tempicon=$(sb-thermbar "$tempbar")
 
 # echo $tempºC
 echo $tempicon

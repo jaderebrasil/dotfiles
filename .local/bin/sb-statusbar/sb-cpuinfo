@@ -3,4 +3,4 @@
 bars=$(sb-cpubars)
 cpuico="🖥"
 tempico="$(sb-cpu)"
-echo "$cpuico$tempico$bars"
+echo "$cpuico$bars$tempico"

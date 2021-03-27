@@ -7,6 +7,12 @@
 # ~/.xprofile. If you do not use a DM, you may remove the link to it to have a
 # cleaner home.
 
+# utils
+delayed() {
+	sleep $1
+	eval "$2"
+}
+
 # Fix Gnome Apps Slow  Start due to failing services
 # Add this when you include flatpak in your system
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
@@ -20,5 +26,8 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/Xresources &	# Uncomment to use Xresource
 dunst &					# dunst for notifications
 xset r rate 300 50 &	# Speed xrate up
 unclutter &				# Remove mouse when idle
+
+delayed "1m" "dropbox" & # start dropbox 1m after
+delayed "2m" "pkill -RTMIN+20 dwmblocks" & # refresh coins
 
 # xsetroot -cursor_name left_ptr

@@ -65,8 +65,8 @@ Plug 'junegunn/fzf.vim'								" fzf integration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lang
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}  " go
-Plug 'PotatoesMaster/i3-vim-syntax'				   " i3 config
-Plug 'kovetskiy/sxhkd-vim'						   " sxhkd
+" Plug 'PotatoesMaster/i3-vim-syntax'				   " i3 config
+" Plug 'kovetskiy/sxhkd-vim'						   " sxhkd
 Plug 'neovimhaskell/haskell-vim'
 
 " Plug 'racer-rust/vim-racer'						 " rust
@@ -79,6 +79,7 @@ Plug 'junegunn/limelight.vim'					   " Hyperfocus on a range
 " Color schemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'Soares/base16.nvim'
 
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

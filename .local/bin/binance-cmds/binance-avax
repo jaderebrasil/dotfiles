@@ -1,5 +1,6 @@
 #!/bin/sh
 source "$HOME/.config/binance/.ENV"
+
 # brl=$(echo "$(binance mkt btc brl) * $(binance bal avax) * $(binance mkt avax btc)" | bc -l)
 brl=$(echo "$(binancecli mkt avax usdt)" | bc -l)
 

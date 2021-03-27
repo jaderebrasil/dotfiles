@@ -68,12 +68,13 @@ font:
     x: 1
     y: 1
 
-# Colors (Gruvbox dark)
+# Colors (Gruvbox dark + modifications)
 colors:
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#282828'
+    # background: '#282828'
+    background: '#1d1f21'
     # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
 
