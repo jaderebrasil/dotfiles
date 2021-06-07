@@ -1,0 +1,10 @@
+#!/bin/sh
+file="podcasts/$(basename "$@")"
+
+next() {
+    mpc play && notify-send "🎼 mpc play" "🎵 $1"
+}
+
+mpc clear\
+    && mpc add "$file" && next "$file"\
+    || notify-send "🎼 mpc play" "Error: $file"

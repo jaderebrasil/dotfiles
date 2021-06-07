@@ -22,10 +22,10 @@ case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
 esac
 
 android_sys="/sys/class/net/enp2s0f0u3/operstate"
-[[ -f "$android_sys" ]] \
+[ -f "$android_sys" ] \
 	&& android=$(sed "s/down//;s/unknown//" "$android_sys") \
 	|| android=""
 
-printf "%s%s\n" "$wifiicon" "$android"
+# printf "%s%s\n" "$wifiicon" "$android"
 
-#"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+printf "%s%s%s\n" "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)" "$wifiicon" "$android"

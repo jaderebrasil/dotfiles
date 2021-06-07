@@ -20,4 +20,5 @@ let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_invert_selection = 0
 
 " colo gruvbox
-colo tomorrow
+" colo tomorrow
+colo doom-one

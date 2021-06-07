@@ -34,7 +34,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'itchyny/lightline.vim'						" Lightline statusbar
 
 " File management
-Plug 'vifm/vifm.vim'								" Vifm
+" Plug 'vifm/vifm.vim'								" Vifm
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'		" Highligh Nerdtree
 Plug 'ryanoasis/vim-devicons'						" Icons for Nerdtree
@@ -79,7 +79,8 @@ Plug 'junegunn/limelight.vim'					   " Hyperfocus on a range
 " Color schemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'Soares/base16.nvim'
+Plug 'romgrk/doom-one.vim'
+" Plug 'Soares/base16.nvim'
 
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -113,7 +114,8 @@ set listchars=tab:»\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
-set noexpandtab
+" set noexpandtab
+set expandtab
 
 "" Map leader to ,
 let mapleader=' '
