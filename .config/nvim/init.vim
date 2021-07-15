@@ -220,6 +220,7 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>c :w! \| !compiler <c-r>%<CR>
+" map <C-c><C-c> :w! \| !compiler <c-r>%<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Commands

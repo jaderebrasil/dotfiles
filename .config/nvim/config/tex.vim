@@ -11,7 +11,11 @@ let g:tex_flavor = "latex"
 
 let g:latex_view_general_viewer = 'zathura'
 
+map <C-c><C-c> :VimtexCompile<CR>
+map <C-c><C-v> :VimtexView<CR>
+map <C-c>c     :VimtexClean<CR>
+
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=c
+  set conceallevel=0 concealcursor=c
 endif

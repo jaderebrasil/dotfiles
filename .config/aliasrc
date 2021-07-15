@@ -37,6 +37,9 @@ alias \
 	xq="xbps-query" \
 	z="zathura"
 
+alias \
+    squashfs="squashfuse"
+
 # Some other stuff
 alias \
 	magit="nvim -c MagitOnly" \

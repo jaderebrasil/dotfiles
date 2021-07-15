@@ -54,6 +54,9 @@ export XMONAD_DATA_DIR="$XDG_DATA_HOME/xmonad"
 # Julia
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 
+# Latex
+export TEXMFHOME="$HOME/.local/share/texmf"
+
 # JAVA Stuff (/etc/environment?)
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
