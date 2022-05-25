@@ -1,0 +1,5 @@
+#!/bin/sh
+
+TMP="/tmp/recordingicon"
+
+[ -f $TMP ] && cat /tmp/recordingicon 2>/dev/null || echo " "

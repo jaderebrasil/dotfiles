@@ -1,0 +1,2 @@
+#!/bin/sh
+scanimage --device "hpaio:/usb/Deskjet_1510_series?serial=BR4261H2P205XJ" --format=jpeg --output-file $@ --progress

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-case "$1" in
-	full) maim pic-full-$(date '+%y%m%d-%H%M-%S').png ;;
-	fullcopy) maim | xclip -selection clipboard -t image/png ;;
-	selectcopy) maim -s | xclip -selection clipboard -t image/png ;;
-esac

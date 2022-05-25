@@ -50,10 +50,12 @@ esac done
 { head -n 1 "$file" 2>/dev/null | grep -q "^00:00:00	" ;} || {
 	echo "Give an input file with -i." &&
 	echo "The file should look as this example:
+
 00:00:00	first_image.jpg
 00:00:03	otherdirectory/next_image.jpg
 00:00:09	this_image_starts_at_9_seconds.jpg
 etc...
+
 Timecodes and filenames must be separated by Tabs." &&
 	exit 1
 	}

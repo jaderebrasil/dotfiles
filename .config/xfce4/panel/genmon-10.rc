@@ -1,0 +1,6 @@
+Command=xfce-recordingicon
+UseLabel=0
+Text=Recording
+UpdatePeriod=1000
+Font=Sans 10
+

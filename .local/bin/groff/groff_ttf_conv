@@ -1,9 +1,0 @@
-#!/bin/bash
-
-mkdir -p "out"
-
-for f in ttf/*.ttf
-do
-	echo "$f\n"
-	fontforge -script generate-t42.pe $f
-done

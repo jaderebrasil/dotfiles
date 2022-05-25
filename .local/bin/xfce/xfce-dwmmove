@@ -1,0 +1,20 @@
+#!/bin/bash
+
+workspace=$(xfce-getWorkspace)
+activeId=$(xfce-getActiveWindowId)
+
+listWindows=$(wmctrl -l | awk -F ' ' -v workspace="$workspace" '{ if ($2==workspace) print $1 }' | nl)
+
+totalNumber=$(echo "$listWindows" | wc -l)
+activeNumber=$(echo "$listWindows" | awk -F' ' -v activeId="$activeId" '{ if ($2 == activeId) print $1 }')
+
+case "$1" in
+    "j") opWindow="+1" ;;
+    "k") opWindow="-1" ;;
+      *) exit 1
+esac
+
+nextNumber=$(echo "scale=0; (($activeNumber - 1 + $totalNumber $opWindow) % $totalNumber) + 1" | bc -l)
+nextId=$(echo "$listWindows" | awk -F ' ' -v nextNumber="$nextNumber" '{if ($1 == nextNumber) print $2}')
+
+wmctrl -a "$nextId" -i

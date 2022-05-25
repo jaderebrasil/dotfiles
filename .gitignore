@@ -1,3 +1,5 @@
+.local/share/dotfiles
+
 # vim: filetype=gitconfig
 # Remove all files by standard
 /*

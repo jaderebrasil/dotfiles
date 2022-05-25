@@ -1,0 +1,2 @@
+use
+`conda deactivate`

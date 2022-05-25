@@ -1,5 +1,0 @@
-# generate-t42.pe
-
-Open($1);
-Generate("out/" + $fontname + ".pfa");
-Generate("out/" + $fontname + ".t42");

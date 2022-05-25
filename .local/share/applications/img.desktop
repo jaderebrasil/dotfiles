@@ -1,5 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Image viewer
-#Exec=/usr/bin/sxiv -a %u
-Exec=/usr/bin/ristretto %u
+Exec=/usr/bin/sxiv -a %f

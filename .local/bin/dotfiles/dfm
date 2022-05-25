@@ -1,0 +1,43 @@
+#!/bin/sh
+
+GITURL='git@gitlab.com:jaderbrasil/dotfiles.git'
+DFMSRC=".local/share/dotfiles"
+alias dfmconfig='/usr/bin/git --git-dir=$HOME/$DFMSRC --work-tree=$HOME'
+
+function dfm_install() {
+    echo "$DFMSRC" >> ~/.gitignore
+    git clone --bare $GITURL "$HOME/$DFMSRC"
+    dfmconfig config --local status.showUntrackedFiles no
+}
+
+function dfm_checkout() {
+    dfmconfig checkout
+}
+
+function dfm_status() {
+    dfmconfig status
+}
+
+function dfm_add() {
+    dfmconfig add "$1"
+}
+
+function dfm_commit() {
+    dfmconfig commit -m "$1"
+}
+
+function dfm_push() {
+    dfmconfig push
+}
+
+## main
+case "$1" in
+    'install') dfm_install;;
+    'checkout') dfm_checkout;;
+    'status') dfm_status;;
+    'add') dfm_add "$2";;
+    'commit') dfm_commit "$2";;
+    'push') dfm_push;;
+    *) echo command "$1" not found.
+       exit 1;;
+esac

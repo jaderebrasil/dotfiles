@@ -1,1 +1,0 @@
-pactl load-module module-echo-cancel source_name=noechosource sink_name=noechosink

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo wpa_supplicant -B -D wext -i wlp1s0 -c /etc/wpa_supplicant.conf && sudo dhclient wlp1s0

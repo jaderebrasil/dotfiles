@@ -477,14 +477,3 @@ def_key "x"
   delete_playlist_items
 def_key "P"
   show_playlist
-
-
-
-def_key "D"
-  delete_playlist_items
-
-def_key "D"
-  delete_browser_items
-
-def_key "D"
-  delete_stored_playlist

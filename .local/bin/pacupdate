@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cupd=$(checkupdates | wc -l)
-
-xmobar="<fc=#c678dd>  $cupd updates </fc><fc=#666666>|</fc>"
-
-[[ "$cupd" == "0" ]] || echo "$xmobar"

@@ -9,9 +9,8 @@
     separator_height = 2
     padding = 0
     horizontal_padding = 8
-    frame_width = 1 #3
-    #"#282828"
-    frame_color = "#666666"
+    frame_width = 3
+    frame_color = "#282828"
 
     # Define a color for the separator.
     # possible values are:
@@ -76,25 +75,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    #background = "#282828"
-    background = "#222222"
-    foreground = "#cccccc"
-    frame_color = "#dddddd"
+    background = "#282828"
+    foreground = "#928374"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    #background = "#458588"
-    #foreground = "#ebdbb2"
-    background = "#000000"
-    foreground = "#ffffff"
+    background = "#458588"
+    foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_critical]
+    background = "#cc2421"
+    foreground = "#ebdbb2"
     frame_color = "#fabd2f"
-    background = "#900000"
-    foreground = "#ffffff"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to

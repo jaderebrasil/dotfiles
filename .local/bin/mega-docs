@@ -1,7 +1,0 @@
-#!/bin/sh
-# Docs mega sync
-doc="$1"
-
-notify-send "Mega Docs" "Começando a enviar $doc"
-rclone copy "$doc" mega:"$doc" --create-empty-src-dirs -L -P
-notify-send "Mega Docs" "$doc acabou de enviar".
