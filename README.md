@@ -4,8 +4,14 @@
 Run the following command without root permissions. Of course, git is a requirement.
 
 ```
-curl -Ls jaderbrasil.xyz/dotfiles/dotclone.sh | /bin/bash
+# add this line in your .zshrc/.bashrc
+alias dfmconfig='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
+
+# run
+curl -Ls "https://gitlab.com/jaderbrasil/dotfiles/-/raw/master/.local/bin/dotfiles/install.sh | /bin/bash
 ```
+
+# Requirements
 Some software may be necessary for all settings to work well.
 
 For neovim you need
