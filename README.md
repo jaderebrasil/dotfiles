@@ -8,7 +8,7 @@ Run the following command without root permissions. Of course, git is a requirem
 alias dfmconfig='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
 
 # run
-curl -Ls "https://gitlab.com/jaderbrasil/dotfiles/-/raw/master/.local/bin/dotfiles/install.sh | /bin/bash
+curl -Ls "https://gitlab.com/jaderbrasil/dotfiles/-/raw/master/.local/bin/dotfiles/install.sh" | /bin/bash
 ```
 
 # Requirements
