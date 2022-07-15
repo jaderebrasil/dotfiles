@@ -110,3 +110,6 @@ source "$HOME/.config/zsh/plugins/npm.zsh"
 
 ## dfmconfig
 alias dfmconfig='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
+
+## wine
+alias wine32="WINEPREFIX='/home/jader/.local/share/wineprefixes/wine32'"

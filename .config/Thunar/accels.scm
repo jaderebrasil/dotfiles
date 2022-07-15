@@ -3,6 +3,7 @@
 ;
 ; (gtk_accel_path "<Actions>/ThunarLauncher/delete-3" "<Shift>KP_Delete")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/delete" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/e67eaef14dd430eb3eee956520d0d239" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/invert-selection" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/open-in-new-tab" "<Primary><Shift>p")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/delete-2" "<Shift>Delete")
@@ -49,6 +50,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-templates" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/execute" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/close-window" "<Primary>q")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/41b334523ff557d2d4bada38fa6a6966" "")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/660d4df7db1d5c5c70af4dabe22c918f" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/cut" "<Primary>x")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/sendto-desktop" "")
